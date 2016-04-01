@@ -1,1 +1,0 @@
-C:\Users\Spencer\Documents\Learning ASP.NET & Angular.JS\SCPSInventory\SCPSInventory.Tests\obj\Debug\SCPSInventory.Tests.csprojResolveAssemblyReference.cache
