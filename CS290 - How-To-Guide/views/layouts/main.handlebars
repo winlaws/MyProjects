@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by TEMPLATED
+http://templated.co
+Released for free under the Creative Commons Attribution License
+
+Name       : Classifieds  
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20120528
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		
+		<title>CS290 - How-To-Guide - Spencer Winlaw</title>
+		
+		<link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css" />
+		<link href="http://fonts.googleapis.com/css?family=Coda:400,800" rel="stylesheet" type="text/css" />
+		<link href="stylesheets/css/style2.css" rel="stylesheet" type="text/css" media="screen" />
+		<link href="google-code-prettify/prettify.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body onload="prettyPrint()">
+		<div id="menu-wrapper">
+			<div id="menu">
+				<ul>
+					<li class={{classes.home}}><a href="/">Homepage</a></li>
+					<li class={{classes.introToSASS}}><a href="/introToSASS">Intro To SASS</a></li>
+					<li class={{classes.theTwoSyntaxes}}><a href="/theTwoSyntaxes">The Two Syntaxes</a></li>
+					<li class={{classes.usingSASS}}><a href="/usingSASS">Using SASS</a></li>
+					<li class={{classes.usingSASSonCL}}><a href="/usingSASS-onTheCommandLine">Using SASS on the Command Line</a></li>
+					<li class={{classes.usingSASSwNodeJS}}><a href="/usingSASS-withNodeJS">Using SASS with Node.JS</a></li>
+					<li class={{classes.wrapUp}}><a href="/wrapUp">Wrap Up</a></li>
+				</ul>
+			</div>
+			<!-- end #menu -->
+		</div>
+		{{#if showTitle}}
+		<div id="header-wrapper">
+			<div id="header">
+				<div id="logo">
+					<h1><a href="#">SASS: A How-To-Guide</a></h1>
+					<p>by Spencer Winlaw</p>
+				</div>
+			</div>
+		</div>
+		<div id="banner"><img src="node-sass-logo.jpg" width="1000" height="400" alt=""/></div>
+		{{/if}}
+		<div id="wrapper">
+			<!-- end #header -->
+			<div id="page">
+				<div id="page-bgtop">
+					<div id="page-bgbtm">
+						<div id="content">
+							{{{body}}}
+						</div>
+						<!-- end #content -->
+						<div id="sidebar">
+							<ul>
+								<li>
+									<h2>Sections</h2>
+									<ul>
+										<li><a href="/">Homepage</a></li>
+										<li><a href="/introToSASS">Intro To SASS</a></li>
+										<li><a href="/theTwoSyntaxes">The Two Syntaxes</a></li>
+										<li><a href="/usingSASS">Using SASS</a></li>
+										<li><a href="/usingSASS-onTheCommandLine">Using SASS on the Command Line</a></li>
+										<li><a href="/usingSASS-withNodeJS">Using SASS with Node.JS</a></li>
+										<li><a href="/wrapUp">Wrap Up</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<!-- end #sidebar -->
+						<div style="clear: both;">&nbsp;</div>
+					</div>
+				</div>
+			</div>
+			<!-- end #page -->
+		</div>
+		<div id="footer">
+			<p>2012. Untitled. All rights reserved. Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>. Photo Credit to <a href="http://www.grenadeco.com/tutorial/sass-do-you-need-css-superpowers/">GrenadeCo.com</a>.</p>
+		</div>
+		<!-- end #footer -->
+		
+		<script type="text/javascript" src="google-code-prettify/prettify.js"></script>
+	</body>
+</html>

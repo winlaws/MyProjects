@@ -1,0 +1,315 @@
+/*
+Design by TEMPLATED
+http://templated.co
+Released for free under the Creative Commons Attribution License
+*/
+
+* {
+	/* border: 1px solid black; */
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #3B3B3B;
+}
+
+h1, h2, h3 {
+	margin: 0px;
+	padding: 0px;
+	letter-spacing: -2px;
+	text-transform: uppercase;
+	font-family: 'Arvo', serif;
+	font-weight: normal;
+	color: #0285CE;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 2.4em;
+}
+
+h3 {
+	font-size: 1.6em;
+}
+
+h4 {
+	font-size: 1.2em;
+	margin: 0px;
+}
+
+p, ul, ol {
+	margin-top: 0;
+	line-height: 180%;
+}
+
+a {
+	text-decoration: none;
+	color: #0285CE;
+}
+
+/* Header */
+
+#header {
+	clear: both;
+	width: 1000px;
+	margin: 0px auto;
+}
+
+/* Logo */
+
+#logo {
+	margin: 0px;
+	padding: 30px 0px;
+	color: #000000;
+	h1 {
+		padding: 0px;
+		text-transform: lowercase;
+		font-size: 3.8em;
+		color: #323030;
+		span {
+			color: #0285CE;
+		}
+	}
+	p {
+		padding: 0px;
+		text-transform: uppercase;
+		font-family: 'Arvo', serif;
+		color: #3B3B3B;
+		a {
+			color: #3B3B3B;
+		}
+	}
+	a {
+		border: none;
+		background: none;
+		text-decoration: none;
+		color: #323030;
+	}
+}
+
+/* Menu */
+
+#menu-wrapper {
+	overflow: hidden;
+	height: 56px;
+	background: #EDEDED;
+}
+
+#menu {
+	width: 1538px;
+	height: 55px;
+	margin: 0px auto;
+	padding: 0px;
+	ul {
+		margin: 0;
+		list-style: none;
+		line-height: normal;
+	}
+	li {
+		float: left;
+		border-right: 1px solid #FFFFFF;
+	}
+	a {
+		display: block;
+		letter-spacing: 1px;
+		line-height: 55px;
+		padding: 0px 30px;
+		text-decoration: none;
+		text-align: center;
+		text-transform: uppercase;
+		font-family: 'Arvo', serif;
+		font-size: 14px;
+		font-weight: normal;
+		color: #3B3B3B;
+		border: none;
+		&:hover{
+			background: #000000;
+			text-decoration: none;
+			color: #FFFFFF;
+		}
+	}
+	.current_page_item {
+		a {
+			background: #000000;
+			text-decoration: none;
+			color: #FFFFFF;
+		}
+	}
+}
+
+/* Page */
+
+#page {
+	overflow: hidden;
+	width: 1000px;
+	margin: 0px auto;
+	padding: 30px 0px;
+	background-color: #FFFFFF;
+}
+
+/* Content */
+
+#content {
+	float: left;
+	width: 640px;
+}
+
+.post {
+	margin-bottom: 15px;
+	border-bottom: 1px dashed #D8D8D8;
+	.title {
+		height: 38px;
+		margin-bottom: 10px;
+		padding: 12px 0 0 0px;
+		font-size: 32px;
+		color: #000000
+	}
+	.meta {
+		margin-bottom: 30px;
+		padding: 5px 0px 15px 0px;
+		text-align: left;
+		font-weight: normal;
+		.date {
+			float: left;
+		}
+		.posted {
+			float: right;
+		}
+	}
+	.entry {
+		padding: 0px 0px 20px 0px;
+		padding-bottom: 20px;
+		text-align: justify;
+	}
+}
+
+.links {
+	height: 30px;
+	padding: 30px 0px 0px 0px;
+	font-size: 14px;
+	font-weight: normal;
+	color: #1C1C1C;
+}
+
+/* Sidebar */
+
+#sidebar {
+	float: right;
+	width: 310px;
+	margin: 0px;
+	padding: 30px 0px 0px 0px;
+	color: #000000;
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	li {
+		margin: 0;
+		padding: 0;
+		ul {
+			margin: 0px 0px;
+			padding-bottom: 50px;
+		}
+		li {
+			border-bottom: 1px dashed #D8D8D8;
+			margin: 0px 0px;
+			padding: 5px 0px;
+			border-left: none;
+			a {
+				color: #3B3B3B;
+			}
+			span {
+				display: block;
+				padding: 0;
+				font-size: 11px;
+				font-style: italic;
+			}
+		}
+	}
+	h2 {
+		padding-bottom: 20px;
+		font-size: 1.8em;
+		color: #000000;
+	}
+	p {
+		margin: 0px 0px 40px 0px;
+		padding: 0px;
+		text-align: justify;
+	}
+	a {
+		border: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+/*Code*/
+.inline-command {
+	background: #f1efee;
+	border: 1px solid #e6e2e0;
+  	padding: 3px;
+ 	border-radius: 3px; 
+}
+
+.command {
+	width: 180px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.npm {
+	width: 250px;
+}
+
+.filestruct {
+	width: 250px;
+	height: 100px;
+	margin-left: 23px;
+	margin-right: 23px;
+	margin-bottom: 25px;
+	float: left;
+}
+
+code strong em{
+	color: red;
+}
+
+/* Footer */
+
+#footer {
+	overflow: hidden;
+	height: 50px;
+	margin: 0 auto;
+	padding: 0px 0 15px 0;
+	background: #E9E9E9;
+	border-top: 5px solid #D8D8D8;
+	font-family: 'Arvo', serif;
+	p {
+		margin: 0;
+		padding-top: 20px;
+		line-height: normal;
+		font-size: 12px;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		text-align: center;
+		color: #A0A0A0;
+	}
+	a {
+		color: #8A8A8A;
+	}
+}
+
+#banner {
+	width: 1000px;
+	margin: 0px auto;
+}

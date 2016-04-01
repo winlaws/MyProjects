@@ -1,0 +1,118 @@
+﻿@model SCPSInventory.Models.CostCenter
+
+@{
+    ViewBag.Title = "Cannot Create New Inventory";
+}
+
+<h2>Cannot Create New Inventory: @Model.CostCenterId - @Model.Name</h2>
+
+<p>
+    There is already an inventory in progress for @Model.CostCenterId - @Model.Name
+</p>
+<p>
+    A new inventory cannot be created for @Model.CostCenterId - @Model.Name until the inventory in progress listed below is either closed or deleted.
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Inventory ID
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Start Date
+            </th>
+            <th>
+                End Date
+            </th>
+            <th>
+                Assets Inventoried
+            </th>
+            <th>
+                Total Assets
+            </th>
+            <th>
+                Progress Bar
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var inventory in Model.Inventories)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => inventory.InventoryId)
+                </td>
+                <td>
+                    @if (inventory.Status == SCPSInventory.Models.InventoryStatus.Closed)
+                    {
+                        @Html.Raw("Closed");
+                    }
+                    else
+                    {
+                        @Html.Raw("In Progress");
+                    }
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => inventory.InventoryStartDate)*@
+                    @Html.Raw(inventory.InventoryStartDate.ToShortDateString())
+                </td>
+                <td>
+                    @if (inventory.Status == SCPSInventory.Models.InventoryStatus.Closed)
+                    {
+                        @*@Html.DisplayFor(modelItem => inventory.InventoryEndDate);*@
+                        @Html.Raw(inventory.InventoryEndDate.ToShortDateString());
+                    }
+                    else
+                    {
+                        @Html.Raw("-")
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => inventory.numAssetsInventoried)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => inventory.numAssetsToInventory)
+                </td>
+                <td>
+                    @{
+                        int percentInventoried = inventory.numAssetsToInventory == 0 ? 100 : ((inventory.numAssetsInventoried * 100)/ inventory.numAssetsToInventory);
+                        string percentInventoriedString = percentInventoried + "%";
+                    }
+
+                    <div class="progress">
+                        @if (percentInventoried < 30)
+                        {
+                            @Html.Raw(percentInventoriedString);
+                        }
+                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@percentInventoried.ToString()"
+                             aria-valuemin="0" aria-valuemax="100" style="width:@percentInventoriedString">
+                            @if (percentInventoried >= 30)
+                            {
+                                @Html.Raw(percentInventoriedString);
+                            }
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    @if (inventory.Status == SCPSInventory.Models.InventoryStatus.InProgress)
+                    {
+                        @Html.ActionLink("View", "InventoryList", "Assets", new { id = inventory.InventoryId }, null);
+                        @Html.Raw(" | ");
+                        @*@Html.ActionLink("Close", "Close", new { id = inventory.InventoryId });
+                            @Html.Raw(" | ");*@
+                    }
+                    @Html.ActionLink("Delete", "Delete", new { id = inventory.InventoryId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    @Html.ActionLink("Back to Inventory List", "List", new { id = Model.CostCenterId })
+</p>

@@ -1,0 +1,78 @@
+﻿@model SCPSInventory.Models.CostCenter
+
+@{
+    ViewBag.Title = "Asset List";
+}
+
+<h2>Asset List: @Model.CostCenterId - @Model.Name</h2>
+
+<p>
+    @Html.ActionLink("Go to Inventory List", "List", "Inventories", new { id = Model.CostCenterId }, null)
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetList[0].AssetId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetList[0].SerialNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetList[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetList[0].ccId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetList[0].Building)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetList[0].Room)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetList[0].InventoryDate)
+            </th>
+            @*<th></th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.AssetList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssetId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SerialNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ccId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Building)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Room)
+                </td>
+                <td>
+                    @Html.Raw(((DateTime)item.InventoryDate).ToShortDateString())
+                </td>
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.AssetId }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.AssetId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.AssetId })
+                    </td>*@
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    @Html.ActionLink("Back to Cost Center List", "List", "CostCenters")
+</p>
+

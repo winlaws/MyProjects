@@ -1,0 +1,80 @@
+﻿@model SCPSInventory.Models.CostCenter
+
+@{
+    ViewBag.Title = "Cannot Delete";
+}
+
+<h2>Cannot Delete Cost Center: @Model.CostCenterId - @Model.Name</h2>
+
+<p>
+    A cost center cannot be deleted until all assets have been removed from cost center (inventoried at another cost center).  
+</p>
+<p>
+    The following is a list of all assets currently in @Model.CostCenterId - @Model.Name: 
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetList[0].AssetId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetList[0].SerialNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetList[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetList[0].ccId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetList[0].Building)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetList[0].Room)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetList[0].InventoryDate)
+            </th>
+            @*<th></th>*@
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.AssetList)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssetId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SerialNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ccId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Building)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Room)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InventoryDate)
+            </td>
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.AssetId }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.AssetId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.AssetId })
+                </td>*@
+        </tr>
+    }
+    </tbody>
+</table>
+
+<p>
+    @Html.ActionLink("Back to Cost Center List", "List")
+</p>

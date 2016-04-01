@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="SCPSInventoryContext-Web.config Connection String" description="SCPSInventoryContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\mssqllocaldb;Initial Catalog=SCPSInventory1;Integrated Security=SSPI;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Spencer\\Documents\\Learning\ ASP\.NET\ &amp;\ Angular\.JS\\SCPSInventory\\SCPSInventory\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SCPSInventoryContext']/@connectionString" />
+  </parameter>
+</parameters>

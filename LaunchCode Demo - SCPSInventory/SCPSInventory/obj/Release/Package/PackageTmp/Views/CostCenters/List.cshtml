@@ -1,0 +1,54 @@
+﻿@model IEnumerable<SCPSInventory.Models.CostCenter>
+
+@{
+    ViewBag.Title = "Cost Center List";
+}
+
+@using System.Collections.Generic;
+
+<h2>Cost Center List</h2>
+<p>
+    @Html.ActionLink("Create New Cost Center", "Create")
+</p>
+
+@{
+    List<SelectListItem> ccSelectList = new List<SelectListItem>();
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CostCenterId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            @*<th></th>*@
+            <th></th>
+        </tr>  
+    </thead>
+    <tbody>
+    @foreach (var cc in Model)
+    {
+        <tr class="clickable-row" onclick='goTo("../Assets/CostCenterList/@cc.CostCenterId");'>
+            <td>
+                @*@Html.ActionLink(cc.CostCenterId, "InventoryList", new { id = cc.CostCenterId })*@
+                @Html.DisplayFor(modelItem => cc.CostCenterId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => cc.Name)
+            </td>
+            @*<td>
+                @Html.ActionLink("View Inventory List", "InventoryList", new { id = cc.CostCenterId }) 
+            </td>*@
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=cc.CostCenterId }) | 
+                @Html.ActionLink("Delete", "Delete", new { id=cc.CostCenterId })
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@Scripts.Render("~/bundles/myScripts")

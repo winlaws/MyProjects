@@ -1,0 +1,28 @@
+<div class="post">
+	<h2 class="title">Using SASS On The Command Line</h2>
+	<div style="clear: both;">&nbsp;</div>
+	<div class="entry">
+		<h3>Install</h3>
+		<p>In order to use SASS on the command line, we must first install it. The instructions for installation can be found <a href="http://sass-lang.com/install">here</a>. Simply follow the appropriate steps for your operating system under the instructions for command line installation found on the right-hand side of the page.</p> 
+		<h3>Usage</h3>
+		<p>Once you have downloaded sass you can use the following command on the command line to interpret .sass or .scss files into .css files. Note that you must be in the directory where the .sass or .scss file to be interpreted is located.</p>
+		<pre class="prettyprint command"><code><strong>sass input output</strong></code></pre> 
+		<p>Here “input” is the name of the .scss or .sass file that you want to translate and “output” is the desired name of the .css file that will be generated.</p> 
+		<p>After executing this command you will have a .css file (located in the same directory) that you can use as desired. See graphic below representing the file structure of a directory before and after the command is executed.</p>
+		<pre class="prettyprint filestruct"><code><h4 class="nocode">Before</h4>				 					
+	Directory
+	    <strong>&#8627</strong> Style.scss</code></pre>			      
+		<pre class="prettyprint filestruct"><code><h4 class="nocode">After</h4>
+	Directory
+	    <strong>&#8627</strong> Style.scss
+	    <strong>&#8627 <em>Style.css</em></strong></code></pre> 
+		<p>Now, what if you want to make changes to your style sheet? Using this method, you would make changes to the .scss file, then run the command again to overwrite the previous .css output file with an updated interpreted output file.</p>
+		<p>This works fine, but as you can see this can become a tedious process when developing your style sheet for a page. As an improvement you can use the following command to monitor the input file for changes. When a change is made, SASS will automatically update the .css file.</p>
+		<pre class="prettyprint command"><code><strong>sass –-watch input:output</strong></code></pre> 
+		<p>This can also be done for entire directories. In this case “input” is the name of the directory containing the files you want to monitor and “output” is the name of the directory where you want the .css file that will be generated to be placed.</p>
+		<p>There are other useful ways to use sass from the command line. They will not be discussed here since our objective was to simply gain some familiarity with SASS so that we will have a better frame of reference from which to approach learning to use SASS with Node.JS If you are interested in exploring the command line tool more on your own you can use the following command to view the full documentation.</p>
+		<pre class="prettyprint command"><code><strong>sass –-help</strong></code></pre> 
+		  
+		<p class="links"><a href="/usingSASS">Previous</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="/usingSASS-withNodeJS">Next</a></p>
+	</div>
+</div>

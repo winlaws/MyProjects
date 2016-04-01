@@ -1,0 +1,63 @@
+* { 
+	margin: 0; 
+	padding: 0; 
+	/*border: 1px solid black;*/
+}
+
+body { 
+	font: 14px/1.4 Georgia, Serif; 
+}
+#page-wrap {
+	margin: 50px;
+}
+p {
+	margin: 20px 0; 
+}
+
+#resetButton{
+	color: red;
+	float: right;
+}
+
+#status{
+	height: 60px;
+}
+
+.space {
+	margin-right: 10px;
+}
+
+#newEntryButton{
+	margin-right: 10%;
+	float: right;
+}
+
+#newEntryLocation{
+	width:100%;
+	height: 35px;
+}
+
+#newEntryPlaceholder{
+	text-align: center;
+}
+
+table { 
+	width: 80%; 
+	border-collapse: collapse; 
+	border-radius: 10px;
+	margin: 0 auto;
+}
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+	background: #eee; 
+}
+th { 
+	background: #333; 
+	color: white; 
+	font-weight: bold; 
+}
+td, th { 
+	padding: 6px; 
+	border: 1px solid #ccc; 
+	text-align: center; 
+}

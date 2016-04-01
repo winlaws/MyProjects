@@ -1,0 +1,44 @@
+﻿@model SCPSInventory.Models.Inventory
+
+@{
+    ViewBag.Title = "Create New Inventory";
+}
+
+<h2>Create New Inventory</h2>
+
+<h3>The Following Inventory will be Created</h3>
+<div>
+ @using (Html.BeginForm())
+ {   <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ccId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ccId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InventoryStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InventoryStartDate)
+        </dd>
+
+    </dl>
+  
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to Inventory List", "List", new { id = Model.ccId })
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

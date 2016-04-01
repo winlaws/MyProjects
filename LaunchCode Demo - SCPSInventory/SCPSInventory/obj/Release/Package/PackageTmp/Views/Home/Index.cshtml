@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<h2>Introduction to Project</h2>
+
+<p>
+    Florida's state regulations require public school boards to inventory all of the capitalized assets they hold annually. Seminole County Public Scools is a large school 
+    system in Florda that contains over 60 schools and many other educational support facilities. Combined, these facilities possess over 20,000 capitalized assets. It is
+    the objective of the Seminole County Public Schools' property records department to inventory each and every one of these assets once a year. 
+</p>
+<p>
+    In order to accomplish this task, a system has been implemented in which each capitalized asset is assigned a unique asset identification number (asset id) and
+    input into an inventory management database. This database also maintains a record of which assets belong to which school or department (cost center). Each cost center
+    is then responsible for keeping track of its assets throughout the year and presenting them to a third party contractor who conducts the official annual inventory
+    over the course of 2-3 days.
+</p>
+<p>  
+    Currently there is no unifying system that has been put in place by property records to help cost centers keep track of their assets throughout the year. They have access 
+    to the database which lists the assets they are responsible for, but that is about it. As you can imagine the success and efficiency of inventories vary quite a bit cost 
+    center to cost center depending upon the individuals who have been designated to control a cost centers inventory.
+</p>
+<p>
+    This web application has been designed as a tool to help the cost centers to be able to better keep track of their inventory throughout the year. It accomplishes this
+    by allowing cost centers to view their assets along with location information for each asset. In addition, it allows the cost centers to conduct their own unofficial 
+    inventories which update location information for each asset.  
+</p>
+
+<p>
+    @Html.ActionLink("On to the Project", "List", "CostCenters")
+</p>
+
+

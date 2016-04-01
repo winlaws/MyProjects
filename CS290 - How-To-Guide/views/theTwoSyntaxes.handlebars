@@ -1,0 +1,84 @@
+<div class="post">
+	<h2 class="title">The Two Syntaxes</h2>
+	<div style="clear: both;">&nbsp;</div>
+	<div class="entry">
+		
+		<p>SASS has two available syntaxes to use: SCSS and Indented Syntax. Both syntaxes offer all of the same features, just with slightly different syntax.</p>
+
+		<h3>SCSS</h3>
+		<p>The newest, main syntax is known as SCSS (for “Sassy CSS”), and is a superset of CSS's syntax. This means that it is compatible with CSS and so you can use CSS syntax directly in SCSS files. Therefore, every valid CSS stylesheet is valid SCSS as well. SCSS files use the extension .scss.</p>
+		<p>The following is a sample of what the SASS code (written with the SCSS syntax) for a project might look like. Visit the official <a href='http://sass-lang.com/guide'>SASS website</a> for more information about the features of SASS and how to write SASS.</p>
+			
+		<h4>Example SCSS Code</h4>
+		<pre class="prettyprint lang-css"><code>// _constants.scss
+ 
+$brand-color: rgb(255,0,0);
+$accent-color: darken($brand-color, 10); 
+// That is, 10% darker than the brand-color.
+$body-font: "Helvetica Neue", Arial, sans-serif;
+$header-font: "Segoe UI", "Myriad Pro", $body-font;
+$width: 960px;</code></pre>
+		<pre class="prettyprint lang-css"><code>// style.scss 
+@import 'constants';
+  
+body {
+   font-family: $body-font;
+   width: $width - 2 * 10px;
+   padding:10px;
+}
+   
+h1,h2,h3,h4 {
+    font-family: $header-font;
+}
+   
+h1 {
+    color:$brand-color;
+}
+   
+section {
+    h1 {
+        color:$accent-color;
+    }
+}</code></pre>
+		<p>As you can see, the structure of SCSS is very similar to that of CSS</p>
+			
+		<h3>Indented Syntax</h3>
+		<p>The second, older syntax is known as the indented syntax (or just "SASS"). Instead of brackets and semicolons, it uses the indentation of lines to specify blocks. Files in the indented syntax use the extension .sass.</p>
+		<p>The following is a sample of what the SASS code (written with the indented syntax) for a project might look. Visit the official <a href='http://sass-lang.com/guide'>SASS website</a> for more information about the features of SASS and how to write SASS.</p>
+		<h4>Example SASS Code</h4>
+		<pre class="prettyprint lang-css"><code>// _constants.scss
+
+$brand-color: rgb(255, 0, 0)
+$accent-color: darken($brand-color, 10)
+
+// That is, 10% darker than the brand-color.
+$body-font: "Helvetica Neue", Arial, sans-serif
+$header-font: "Segoe UI", "Myriad Pro", $body-font
+$width: 960px</code></pre>
+		<pre class="prettyprint lang-css"><code>// style.scss
+@import constants
+
+body
+  font-family: $body-font
+  width: $width - 2 * 10px
+  padding: 10px
+
+h1, h2, h3, h4
+  font-family: $header-font
+
+h1
+  color: $brand-color
+
+section
+  h1
+    color: $accent-color</code></pre>
+
+		<p>As you can see, the indented syntax is more concise and requires less text. Some people find this syntax easier to read and quicker to write.<p>
+		
+		<h3>More Information</h3>
+		<p>It is worth noting that although the new SCSS syntax has been introduced, the indented syntax has not and never will be deprecated. Rather the two syntaxes will co-exist, offering developers a choice based on their own personal preferences. You can read about some of the cases being made for using each of the syntaxes <a href='http://thesassway.com/editorial/sass-vs-scss-which-syntax-is-better'>here</a>.</p>
+		<p>Working with the two syntaxes is made simpler by the fact that both syntaxes can import files written in the other, and that files can easily be converted from one syntax to the other.</p>
+
+		<p class="links"><a href="/introToSASS">Previous</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="/usingSASS">Next</a></p>
+	</div>
+</div>

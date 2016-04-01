@@ -1,0 +1,15 @@
+﻿@model SCPSInventory.Models.CostCenter
+
+@{
+    ViewBag.Title = "Cannot Create New Inventory";
+}
+
+<h2>Cannot Create New Inventory: @Model.CostCenterId - @Model.Name</h2>
+
+<p>
+    A new inventory cannot be created for @Model.CostCenterId - @Model.Name because are no assets in this cost center and therefore no assets to inventory.
+</p>
+
+<p>
+    @Html.ActionLink("Back to Inventory List", "List", new { id = Model.CostCenterId })
+</p>

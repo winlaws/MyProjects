@@ -1,0 +1,145 @@
+﻿@model SCPSInventory.Models.Inventory
+
+@{
+    ViewBag.Title = "Inventory Asset List";
+}
+
+<h2>Inventory #@Model.InventoryId</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ccId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ccId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InventoryStartDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.InventoryStartDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InventoryEndDate)
+        </dt>
+        <dd>
+            @Html.Raw("-")
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.numAssetsInventoried)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.numAssetsInventoried)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.numAssetsToInventory)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.numAssetsToInventory)
+        </dd>
+        <dt>
+            @Html.Raw("Assets Not Yet Inventoried")
+        </dt>
+        <dd>
+            @Html.Raw(Model.numAssetsToInventory-Model.numAssetsInventoried)
+        </dd>
+    </dl>
+
+    @{
+        int percentInventoried = Model.numAssetsToInventory == 0 ? 100 : ((Model.numAssetsInventoried * 100) / Model.numAssetsToInventory);
+        string percentInventoriedString = percentInventoried + "%";
+    }
+
+    <div class="progress">
+        @if (percentInventoried < 30)
+        {
+            @Html.Raw(percentInventoriedString);
+        }
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@percentInventoried.ToString()"
+             aria-valuemin="0" aria-valuemax="100" style="width:@percentInventoriedString">
+            @if (percentInventoried >= 30)
+            {
+                @Html.Raw(percentInventoriedString);
+            }
+        </div>
+    </div>
+
+    @Html.ActionLink("Close Inventory", "Close", "Inventories", new { id = Model.InventoryId }, null) | @Html.ActionLink("Inventory Assets", "Inventory", "Assets", new { id = Model.InventoryId }, null)
+
+</div>
+
+<h3>Assets Not Yet Inventoried:</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetList[0].AssetId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetList[0].SerialNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetList[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetList[0].ccId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetList[0].Building)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetList[0].Room)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetList[0].InventoryDate)
+            </th>
+            @*<th></th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.AssetList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssetId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SerialNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ccId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Building)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Room)
+                </td>
+                <td>
+                    @Html.Raw(((DateTime)item.InventoryDate).ToShortDateString())
+                </td>
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.AssetId }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.AssetId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.AssetId })
+                    </td>*@
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    @Html.ActionLink("Back to Inventory List", "List", "Inventories", new { id = Model.ccId }, null)
+</p>
+

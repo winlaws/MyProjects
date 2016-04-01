@@ -1,0 +1,14 @@
+{
+  "name": "CS290 - Database Interactions and UI - Spencer Winlaw",
+  "description": "Workout Tracker",
+  "main": "Workout_Tracker,html",
+  "author": "Spencer Winlaw",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.2",
+    "express-handlebars": "^2.0.1",
+    "express-session": "^1.11.3",
+    "mysql": "^2.8.0",
+    "node-sass-middleware": "^0.9.7"
+  }
+}

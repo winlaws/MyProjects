@@ -1,0 +1,58 @@
+<div class="post">
+	<h2 class="title">Using SASS With Node.JS</h2>
+	<div style="clear: both;">&nbsp;</div>
+	<div class="entry">
+		<p>Now that you better understand how SASS is used in practice we will explore using SASS with a Node.JS application. In order to do this, we will be making use of the Express.js framework. Other tools can also be used to implement similar functionalities in other Node.JS frameworks, modules, extensions, and plugins. See the <a href="https://github.com/sass/node-sass">node-sass git repository</a> for more information.</p>
+		
+		<p>The SASS tools that have been developed for use with the Express.JS framework allow us to automatically recompile .scss or .sass files when an http request is made. This is very similar to the functionality of the <span class="prettyprint inline-command"><code><strong>sass –-watch input:output</strong></code></span> command for the SASS command line tool we saw earlier. Here the server is checking the .scss file upon each http request, recompiling when changes have been made, then serving the most up to date .css file to the client.</p> 
+
+		<p>Below we discuss how this is accomplished. For the purpose of this discussion we organize file structure for the Node.JS application as follows</p>
+		<pre class="prettyprint"><code><h4 class="nocode">Project File Structure</h4>
+			Project Directory
+			     <strong>&#8627</strong> app.js
+			     <strong>&#8627</strong> node_modules
+			     <strong>&#8627</strong> public    
+				 <strong>&#8627</strong> scss
+				    <strong>&#8627</strong> style.scss
+				 <strong>&#8627</strong> css</code></pre>
+		<h3>Install</h3>
+		<p>First, we must use <em>npm</em> to install <strong><em>node-sass-middleware</em></strong>. This is the tool that will enable us to implement the functionality described above. To do this simply enter the following command on the command line from within the project directory. 
+		<pre class="prettyprint command npm"><code><strong>npm install node-sass-middleware</strong></code></pre>
+		
+		<h3>Usage</h3>
+		<pre class="prettyprint lang-js"><code>var express = require('express');
+var sassMiddleware = require('node-sass-middleware');
+var app = express();
+app.use(sassMiddleware({
+    /* Options */
+    root: __dirname + "/public",
+    src: "/scss",
+    dest: "/css",
+    debug: true,
+    outputStyle: 'compressed',
+    prefix: '/css'  
+    // Where prefix is at &ltlink rel="stylesheets" href="css/style.css"&gt>
+}));
+app.use(express.static('public'));</code></pre>
+	   
+	    <p>Now when the server receives an http request for a .css file located in the "dest:" directory, the server will checking the "src:" directory for a file with the same path but a .scss extension. If any changes have been made, the server recompiles the .scss file, updates the .css file in the "dest:" directory, tben serves the most up to date .css file to the client. 
+		<pre class="prettyprint filestruct2"><code><h4 class="nocode">Resulting Project File Structure</h4>
+			Project Directory
+			    <strong>&#8627</strong> app.js
+			    <strong>&#8627</strong> node_modules
+			    <strong>&#8627</strong> public    
+				 <strong>&#8627</strong> scss
+				    <strong>&#8627</strong> style.scss
+				 <strong>&#8627</strong> css
+				    <strong>&#8627 <em>style.css</em></strong></code></pre>
+	 	<p>There are a few important details to make note of here:</p>
+	    <ol>
+	    	<li>The first is that the server will checking the "src:" directory for a file with the <strong><em>same path</em></strong> as the .css file requested but a .scss extension. In this case that means that it will be looking for .../scss/css/style.css. Clearly this directory does not exist. This is where th "prefix:" option comes in. To resolve the issue described, the "prefix:" option tells the server to ignore the beginning portion of the path. In our case, we use the prefix '/css' so that now the server will look for the .scss file in the correct location (.../scss/style.scss)</li>
+	    	<li>The <span class="prettyprint inline-command"><code><strong>app.use(express.static('public'));</strong></code></span> statement must come after the <span class="prettyprint inline-command"><code><strong>app.use(sassMiddleware())</strong></code></span> statement.</li>
+	    	<li>The "root:" option is used to define a base path for both source and destination directories. Alternatively we could fully define each path separately. Root is a useful convenience here due to the file structure we chose for the project</li>
+	    	<li>sassMiddleware assumes it will be compiling .scss files by default. If we wanted to use .sass extension files for our project, we would have to include the "indentedSyntax: true" option.
+	    </ol>
+		
+		<p class="links"><a href="/usingSASS-onTheCommandLine">Previous</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="/wrapUp">Next</a></p>
+	</div>
+</div>
